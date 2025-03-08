@@ -12,7 +12,7 @@ function validadorStringVacio (nombreIngresado){
 };
 
 function agregarAmigo (){
-    listaAmigos.push(obtenerNombreAmigo());
+    listaAmigos.push(obtenerNombreAmigo().trim());
 }
 
 function limpiarEntrada(){
@@ -20,9 +20,37 @@ function limpiarEntrada(){
 }
 
 function main () {
-    let nuevoAmigo = obtenerNombreAmigo();
+    let nuevoAmigo = obtenerNombreAmigo().trim();
     if (validadorStringVacio(nuevoAmigo)) {
         agregarAmigo();
         limpiarEntrada();
+        mostrarAmigos();
     }
+}
+
+function mostrarAmigos () {
+    let amigosMostrados  = document.getElementById("listaAmigos");
+    let tituloListaAmigos = document.getElementById("tituloListaAmigos");
+    tituloListaAmigos.innerHTML = "Amigos agregados";
+    tituloListaAmigos.style.textDecoration = "underline";
+    amigosMostrados.innerHTML = "";
+    for (let i= 0; listaAmigos.length > i; i++) {
+        amigosMostrados.innerHTML += `<li>${listaAmigos[i]}</li>`;
+    }
+}
+
+document.getElementById("amigo").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        main();
+    }
+});
+
+function sortearAmigo (){
+    let numeroRandomico = Math.floor(Math.random()*listaAmigos.length);
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = ``
+    if (listaAmigos.length == 0) {
+        return resultado.innerHTML = `No haz agregado amigos para sortear`} else { 
+            resultado.innerHTML = `Tu amigo secreto es: ${listaAmigos[numeroRandomico]}`
+        }
 }
