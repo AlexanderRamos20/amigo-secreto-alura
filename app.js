@@ -48,9 +48,18 @@ document.getElementById("amigo").addEventListener("keydown", function(event) {
 function sortearAmigo (){
     let numeroRandomico = Math.floor(Math.random()*listaAmigos.length);
     let resultado = document.getElementById("resultado");
-    resultado.innerHTML = ``
+    resultado.innerHTML = ``;
     if (listaAmigos.length == 0) {
         return resultado.innerHTML = `No haz agregado amigos para sortear`} else { 
             resultado.innerHTML = `Tu amigo secreto es: ${listaAmigos[numeroRandomico]}`
         }
+}
+function reiniciar () {
+    listaAmigos = [] ;
+    let tituloListaAmigos = document.getElementById("tituloListaAmigos");
+    tituloListaAmigos.innerHTML = "";
+    let amigosMostrados  = document.getElementById("listaAmigos");
+    amigosMostrados.innerHTML = "";
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = ``;
 }
