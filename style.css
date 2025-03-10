@@ -160,3 +160,8 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+.button-draw {
+    margin-bottom: 10px; /* Añade espacio hacia abajo de cada botón */
+  }
+  
