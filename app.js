@@ -8,7 +8,15 @@ function obtenerNombreAmigo () {
 }
 
 function validadorStringVacio (nombreIngresado){
-    return nombreIngresado !== '';
+    let resultado = document.getElementById("resultado");
+    let nombreAmigo = document.getElementById("amigo");
+    resultado.innerHTML = ``;
+    if (nombreIngresado === '') {
+    resultado.innerHTML = `Favor ingrese un nombre válido`;
+    resultado.style.color = "red";
+    nombreAmigo.value = ''} else {
+    resultado.style.color = ''
+    return nombreIngresado !== '';}
 };
 
 function agregarAmigo (){
